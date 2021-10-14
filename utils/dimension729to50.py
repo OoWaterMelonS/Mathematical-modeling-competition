@@ -16,4 +16,5 @@ for i in range(len(cols)):
     if cols[i] not in labels:
         del data[cols[i]]
 
-data.to_excel('../data/V2_Molecular_Descriptor.xlsx', index=False)
+
+data.to_excel('../data_corr/V2_Molecular_Descriptor.xlsx', index=False)
