@@ -31,8 +31,8 @@ for i in range(res_features):
 
 # todo   改成降序的情况
 plt.title('Index selection')
-plt.barh(range(len(tmp_indexs)), importances[tmp_indexs], color='blue', align='center')
-plt.yticks(range(len(tmp_indexs)), [labels[i] for i in tmp_indexs])
+plt.barh(range(len(tmp_indexs))[::-1], importances[tmp_indexs], color='blue', align='center')
+plt.yticks(range(len(tmp_indexs))[::-1], [labels[i] for i in tmp_indexs])
 plt.xlabel('Relative importance of indicators')
 plt.show()
 

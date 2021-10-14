@@ -15,7 +15,7 @@ data_std = data_fea.std()
 data_fea = (data_fea - data_mean) / data_std
 data_fea = data_fea.fillna(0)
 # 选取主成分的个数为25
-pca = PCA(n_components=25)
+pca = PCA(n_components=30)
 pca_result = pca.fit_transform(data_fea.values)
 
 # 绘制图像，观察主成分对特征的解释程度

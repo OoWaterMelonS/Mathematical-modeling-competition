@@ -17,9 +17,9 @@ data_fea = np.array(data_fea)
 corr = data.corr(method='kendall')
 corr.to_excel('../data_corr/kendall_cor.xlsx', index=labels)
 
-corr = data.corr(method='spearman')
-corr.to_excel('../data_corr/spearman_cor.xlsx', index=labels)
-
-corr = data.corr(method='pearson')
-corr.to_excel('../data_corr/pearson_cor.xlsx', index=labels)
+# corr = data.corr(method='spearman')
+# corr.to_excel('../data_corr/spearman_cor.xlsx', index=labels)
+#
+# corr = data.corr(method='pearson')
+# corr.to_excel('../data_corr/pearson_cor.xlsx', index=labels)
 
