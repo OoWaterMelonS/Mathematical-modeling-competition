@@ -22,12 +22,17 @@ importances = model.feature_importances_
 
 indexs = np.argsort(importances)
 
-res_features = 50
+res_features = 40
 # 729 333  升序
 tmp_indexs = np.flipud(indexs[-res_features-1:-1])
 
+
 for i in range(res_features):
     print(str(importances[tmp_indexs[i]])+'-----'+str(labels[tmp_indexs[i]]))
+    # # print(str(i+1)+'-'+str(labels[tmp_indexs[i]]))
+    # print(str(labels[tmp_indexs[i]]))
+
+labels[tmp_indexs].to_excel('../data/label.xlsx')
 
 # todo   改成降序的情况
 plt.title('Index selection')

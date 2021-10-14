@@ -10,11 +10,11 @@ from xgboost.sklearn import XGBClassifier
 from sklearn import metrics
 
 # 加载数据
-datafile = u'../data/V2_Molecular_Descriptor.xlsx'
+datafile = u'../../data/V2_Molecular_Descriptor.xlsx'
 data = pd.read_excel(datafile)
 # pandas数据框dataframe
 X = data.iloc[:, 1:]
-y = data.iloc[:, 1]
+y = data.iloc[:, 0]
 
 # 数据划分
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)

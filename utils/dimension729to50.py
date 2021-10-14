@@ -17,4 +17,4 @@ for i in range(len(cols)):
         del data[cols[i]]
 
 
-data.to_excel('../data_corr/V2_Molecular_Descriptor.xlsx', index=False)
+data.to_excel('../data/V2_Molecular_Descriptor.xlsx', index=False)

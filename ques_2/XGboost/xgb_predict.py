@@ -11,7 +11,7 @@ data = pd.read_excel(datafile)
 X = data.iloc[:, :]
 
 # 数据划分
-model = xgb.Booster(model_file='../model/xgb.xgb')
+model = xgb.Booster(model_file='../../model/xgb.xgb')
 
 dtest = xgb.DMatrix(X)
 ans = model.predict(dtest)
