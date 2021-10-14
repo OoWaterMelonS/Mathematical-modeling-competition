@@ -12,7 +12,7 @@ data_fea = data_fea.fillna(0)  # 填补缺失值
 data_mean = data_fea.mean()
 data_std = data_fea.std()
 data_fea = (data_fea - data_mean) / data_std
-
+data_fea = data_fea.fillna(0)  # 填补缺失值
 # 因子分析，并选取潜在因子的个数为10
 FA = FactorAnalysis(n_components=25).fit_transform(data_fea.values)
 
@@ -36,4 +36,12 @@ plt.scatter(FA[:, 5], FA[:, 6])
 plt.scatter(FA[:, 6], FA[:, 7])
 plt.scatter(FA[:, 7], FA[:, 8])
 plt.scatter(FA[:, 8], FA[:, 9])
-plt.scatter(FA[:, 9], FA[:, 0])
+plt.scatter(FA[:, 9], FA[:, 10])
+plt.scatter(FA[:, 10], FA[:, 11])
+plt.scatter(FA[:, 11], FA[:, 12])
+plt.scatter(FA[:, 12], FA[:, 13])
+plt.scatter(FA[:, 13], FA[:, 14])
+plt.scatter(FA[:, 14], FA[:, 15])
+plt.scatter(FA[:, 15], FA[:, 16])
+plt.scatter(FA[:, 16], FA[:, 17])
+plt.show()
