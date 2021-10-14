@@ -29,7 +29,6 @@ model.fit(X, y)
 
 test_data = data.iloc[2,:]
 test_data = np.array(test_data)
-#  todo  次数 输入的维度应该是40个维度
 print('预测结果：', model.predict(test_data.reshape(1, -1)))  # 预测某个输入对象
 
 # cengindex = 0
