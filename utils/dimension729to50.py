@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 
-datafile = u'../data/V1_Molecular_Descriptor.xlsx'
+datafile = u'../train_data/V1_Molecular_Descriptor.xlsx'
 orgin_data = pd.read_excel(datafile)
 data = orgin_data.iloc[:, :]
 cols = data.columns
-# data_fea = data.iloc[:, 1:]  # 取数据中指标所在的列
+# data_fea = train_data.iloc[:, 1:]  # 取数据中指标所在的列
 
 f = open('../data/important_label.txt')
 
@@ -17,4 +17,5 @@ for i in range(len(cols)):
         del data[cols[i]]
 
 
-data.to_excel('../data/V2_Molecular_Descriptor.xlsx', index=False)
+# train_data.to_excel('../train_data/V2_Molecular_Descriptor.xlsx', index=False)
+data.to_csv('../train_data/V2_Molecular_Descriptor.csv', index=False)

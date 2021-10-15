@@ -10,11 +10,11 @@ from xgboost.sklearn import XGBClassifier
 from sklearn import metrics
 
 # 加载数据
-datafile = u'../../data/V2_Molecular_Descriptor.xlsx'
-data = pd.read_excel(datafile)
-# pandas数据框dataframe
-X = data.iloc[:, 1:]
-y = data.iloc[:, 0]
+datafile = u'../train_data/20_Molecular_Descriptor_train.xlsx'
+X = pd.read_excel(datafile).iloc[:-24, :]
+
+targetfile = u'../train_data/ERα_activity_train.xlsx'
+y = pd.read_excel(datafile)['IC50_nM'].iloc[:-24, :]
 
 # 数据划分
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
@@ -33,22 +33,15 @@ params = {
     'seed': 1000,
     'nthread': 4,
 }
-#训练
+# 训练
 dtrain = xgb.DMatrix(X_train, y_train)
 num_rounds = 300
 plst = list(params.items())
 model = xgb.train(plst, dtrain, num_rounds)
 
 # 对测试集进行预测
-dtest = xgb.DMatrix(X_test)
-ans = model.predict(dtest)
+X_test = xgb.DMatrix(X_test)
+ans = model.predict(X_test)
 print(ans)
 
-model.save_model('../model/xgb.xgb')
-# 显示重要特征
-# plot_importance(model)
-# importance = model.get_score(importance_type='weight', fmap='')
-#
-# importance= sorted(importance.items(), key=lambda x: x[1],reverse=True)
-# print(importance)
-# plt.show()
+model.save_model('./model/xgb_regression.xgb')
